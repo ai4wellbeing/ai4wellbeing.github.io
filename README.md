@@ -1,8 +1,10 @@
 # Cambridge AI for Wellbeing Society
 
-Static homepage for `ai4wellbeing.github.io`, the organization site for Cambridge AI for Wellbeing Society / 智善科技.
+Static homepage for `ai4wellbeing.github.io`, the organization site for Cambridge AI for Wellbeing Society.
 
 ## Local development
+
+Requires Node.js `>=22.12.0`.
 
 ```bash
 npm install

@@ -66,19 +66,15 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  min-width: 210px;
+  min-width: 260px;
 }
 
-.brand-mark {
-  display: grid;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  border-radius: 8px;
-  background: var(--ink);
-  color: var(--cambridge-blue);
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 700;
+.brand-logo {
+  width: 46px;
+  height: 52px;
+  flex: 0 0 auto;
+  border-radius: 6px;
+  object-fit: contain;
 }
 
 .brand strong,
@@ -87,13 +83,13 @@ a {
 }
 
 .brand strong {
-  font-size: 0.98rem;
+  font-size: 1rem;
   line-height: 1.1;
 }
 
 .brand small {
   color: var(--ink-muted);
-  font-size: 0.76rem;
+  font-size: 0.74rem;
 }
 
 nav {
@@ -473,6 +469,11 @@ footer p {
 @media (max-width: 520px) {
   .brand {
     min-width: 0;
+  }
+
+  .brand-logo {
+    width: 42px;
+    height: 48px;
   }
 
   nav {
