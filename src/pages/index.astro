@@ -210,6 +210,9 @@ const organizationSchema = JSON.stringify({
         <div class="contact-actions">
           <a class="button primary" href={`mailto:${contactEmail}`}>Email us</a>
           <a class="button secondary" href="https://github.com/ai4wellbeing">GitHub</a>
+          <p class="contact-email">
+            <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+          </p>
         </div>
       </section>
       <section class="brand-banner" aria-label="Society crest and wordmark">
@@ -217,8 +220,8 @@ const organizationSchema = JSON.stringify({
           class="brand-banner-image"
           src={brandBanner}
           alt="Cambridge AI for Wellbeing Society crest beside the society wordmark"
-          widths={[640, 1024, 1672]}
-          sizes="(min-width: 900px) 820px, calc(100vw - 40px)"
+          width={260}
+          densities={[1, 2]}
           format="webp"
           loading="lazy"
         />
