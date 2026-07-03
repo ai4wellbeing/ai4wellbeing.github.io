@@ -1,3 +1,6 @@
+import type { ImageMetadata } from 'astro';
+import founderPortrait from '../assets/hanlin-cai.jpg';
+
 export const navItems = [
   { label: 'Mission', href: '#mission' },
   { label: 'Focus', href: '#focus' },
@@ -71,11 +74,20 @@ export const events = [
   }
 ];
 
-export const people = [
+export const people: {
+  name: string;
+  role: string;
+  body: string;
+  image?: ImageMetadata;
+  link?: string;
+}[] = [
   {
-    name: 'Guanglun Cai',
+    name: 'Hanlin Cai',
     role: 'Founder / Coordinator',
-    body: 'Communications engineering, edge LLMs, LLM networking, attack-defense-resilience.'
+    body:
+      'PhD student in the Internet of Everything Group at the University of Cambridge, Cambridge Trust Scholar. Edge LLMs, LLM networking, attack-defense-resilience.',
+    image: founderPortrait,
+    link: 'https://caihanlin.com'
   },
   {
     name: 'Research Members',

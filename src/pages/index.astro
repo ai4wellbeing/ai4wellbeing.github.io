@@ -163,7 +163,19 @@ const organizationSchema = JSON.stringify({
         <div class="three-grid">
           {people.map((person) => (
             <article class="profile">
-              <h3>{person.name}</h3>
+              {person.image && (
+                <Image
+                  class="profile-photo"
+                  src={person.image}
+                  alt={`Portrait of ${person.name}`}
+                  width={112}
+                  densities={[1, 2]}
+                  format="webp"
+                />
+              )}
+              <h3>
+                {person.link ? <a href={person.link}>{person.name}</a> : person.name}
+              </h3>
               <p class="role">{person.role}</p>
               <p>{person.body}</p>
             </article>
