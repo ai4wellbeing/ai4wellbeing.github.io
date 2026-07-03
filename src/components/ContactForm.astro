@@ -1,0 +1,192 @@
+---
+interface Props {
+  endpoint?: string;
+}
+
+const { endpoint = '' } = Astro.props;
+const rawEndpoint = endpoint.trim();
+
+const parseHttpsEndpoint = (value: string) => {
+  if (!value) {
+    return undefined;
+  }
+
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' ? url.href : undefined;
+  } catch {
+    return undefined;
+  }
+};
+
+const contactFormAction = parseHttpsEndpoint(rawEndpoint);
+const isContactFormConfigured = Boolean(contactFormAction);
+
+if (rawEndpoint && !isContactFormConfigured) {
+  console.warn('PUBLIC_CONTACT_FORM_ENDPOINT must be an absolute HTTPS URL.');
+}
+
+const interestOptions = [
+  'Membership or volunteering',
+  'Research collaboration',
+  'Event or seminar proposal',
+  'Partnership or sponsorship',
+  'General enquiry'
+];
+---
+
+<form
+  class="contact-form"
+  action={contactFormAction}
+  method="POST"
+  accept-charset="UTF-8"
+  data-contact-form
+  data-configured={isContactFormConfigured ? 'true' : 'false'}
+  aria-labelledby="contact-form-title"
+  aria-describedby="contact-form-status"
+>
+  <input
+    type="hidden"
+    name="subject"
+    value="New enquiry for Cambridge AI for Wellbeing Society from {{ name }}"
+  />
+  <label class="form-honeypot" aria-hidden="true">
+    Leave this field empty
+    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+  </label>
+
+  <div class="form-intro">
+    <h3 id="contact-form-title">Send an enquiry</h3>
+    <p>Tell us briefly who you are and how you would like to engage.</p>
+  </div>
+
+  <div class="form-row">
+    <label for="contact-name">
+      Name
+      <input
+        id="contact-name"
+        name="name"
+        type="text"
+        autocomplete="name"
+        maxlength="120"
+        required
+      />
+    </label>
+    <label for="contact-email">
+      Email
+      <input
+        id="contact-email"
+        name="email"
+        type="email"
+        autocomplete="email"
+        inputmode="email"
+        maxlength="160"
+        required
+      />
+    </label>
+  </div>
+
+  <label for="contact-affiliation">
+    Affiliation
+    <input
+      id="contact-affiliation"
+      name="affiliation"
+      type="text"
+      autocomplete="organization"
+      maxlength="180"
+      placeholder="College, department, company, or independent"
+    />
+  </label>
+
+  <label for="contact-interest">
+    Area of interest
+    <select id="contact-interest" name="interest" required>
+      <option value="">Select one</option>
+      {interestOptions.map((option) => <option>{option}</option>)}
+    </select>
+  </label>
+
+  <label for="contact-message">
+    Message
+    <textarea
+      id="contact-message"
+      name="message"
+      rows="5"
+      maxlength="1200"
+      required
+      placeholder="A few sentences are enough for a first contact."
+    ></textarea>
+  </label>
+
+  <div class="form-footer">
+    <p id="contact-form-status" class="form-status" data-form-status aria-live="polite">
+      {isContactFormConfigured
+        ? 'We will reply to the address you provide.'
+        : 'The contact form is being connected.'}
+    </p>
+    <button class="button primary" type="submit" disabled={!isContactFormConfigured}>
+      {isContactFormConfigured ? 'Send message' : 'Form setup pending'}
+    </button>
+  </div>
+</form>
+
+<script is:inline>
+  (() => {
+    const forms = document.querySelectorAll('[data-contact-form]');
+
+    forms.forEach((contactForm) => {
+      if (!(contactForm instanceof HTMLFormElement) || contactForm.dataset.configured !== 'true') {
+        return;
+      }
+
+      const status = contactForm.querySelector('[data-form-status]');
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+
+      if (!(submitButton instanceof HTMLButtonElement)) {
+        return;
+      }
+
+      const initialButtonText = submitButton.textContent || 'Send message';
+      const setStatus = (message) => {
+        if (status) {
+          status.textContent = message;
+        }
+      };
+
+      contactForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        if (!contactForm.action) {
+          setStatus('The contact form is not ready yet.');
+          return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+        setStatus('Sending your message...');
+
+        try {
+          const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: new FormData(contactForm),
+            headers: {
+              Accept: 'application/json'
+            }
+          });
+
+          if (!response.ok) {
+            throw new Error('Form submission failed.');
+          }
+
+          contactForm.reset();
+          setStatus('Thank you. Your message has been sent.');
+        } catch {
+          setStatus('Submission failed. Please try again later.');
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = initialButtonText;
+        }
+      });
+    });
+  })();
+</script>
