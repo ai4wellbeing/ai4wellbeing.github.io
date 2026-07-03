@@ -35,6 +35,16 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+}
+
 @media (min-width: 861px) {
   html {
     /* Keep anchored sections clear of the sticky header. */
@@ -97,6 +107,14 @@ a {
   align-items: center;
   gap: 12px;
   min-width: min(410px, 42vw);
+}
+
+.brand:focus-visible,
+.button:focus-visible,
+.text-link:focus-visible,
+.profile h3 a:focus-visible {
+  outline: 3px solid rgba(0, 189, 182, 0.34);
+  outline-offset: 4px;
 }
 
 .brand-logo {
@@ -283,6 +301,11 @@ h3 {
   border-radius: 8px;
   font-weight: 700;
   line-height: 1.2;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    opacity 160ms ease;
 }
 
 .button.primary {
@@ -290,7 +313,7 @@ h3 {
   color: #092b31;
 }
 
-.button.primary:hover {
+.button.primary:not(:disabled):hover {
   background: #a7f2e6;
 }
 
@@ -304,7 +327,7 @@ h3 {
   color: var(--paper);
 }
 
-.button.secondary:hover {
+.button.secondary:not(:disabled):hover {
   background: rgba(255, 255, 255, 0.12);
 }
 
