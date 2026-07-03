@@ -2,7 +2,8 @@
 import { Image, Picture, getImage } from 'astro:assets';
 import '../styles/global.css';
 import { events, focusAreas, mission, navItems, people, projects } from '../data/site';
-import logo from '../assets/ai4s-logo.png';
+import logo from '../assets/ai4w-logo.png';
+import brandBanner from '../assets/ai4w-logo-big.png';
 import heroImage from '../assets/hero.png';
 
 const contactEmail = 'hc663@cam.ac.uk';
@@ -198,6 +199,17 @@ const organizationSchema = JSON.stringify({
           <a class="button primary" href={`mailto:${contactEmail}`}>Email us</a>
           <a class="button secondary" href="https://github.com/ai4wellbeing">GitHub</a>
         </div>
+      </section>
+      <section class="brand-banner" aria-label="Society crest and wordmark">
+        <Image
+          class="brand-banner-image"
+          src={brandBanner}
+          alt="Cambridge AI for Wellbeing Society crest beside the society wordmark"
+          widths={[640, 1024, 1672]}
+          sizes="(min-width: 900px) 820px, calc(100vw - 40px)"
+          format="webp"
+          loading="lazy"
+        />
       </section>
     </main>
 
