@@ -37,20 +37,20 @@ public/                         files served as-is (icons, robots.txt)
 
 GitHub Pages serves static files and cannot send email by itself. The contact form is
 therefore wired to an external Formspree endpoint, while the recipient email address
-stays in the Formspree dashboard rather than in this repository.
+stays private in the Formspree dashboard rather than in this repository.
 
-1. Create a Formspree form and set the target email in Formspree. Formspree emails a
-   verification link to that address; submissions are not delivered until it is confirmed.
-2. Copy the full HTTPS form endpoint, for example `https://formspree.io/f/xxxxxxx`.
-3. In `ai4wellbeing/ai4wellbeing.github.io`, open Settings -> Secrets and variables
-   -> Actions -> Variables.
-4. Add a repository variable named `PUBLIC_CONTACT_FORM_ENDPOINT` with the copied
-   endpoint as its value.
-5. Re-run the GitHub Pages workflow or push a new commit.
+The production endpoint is set in `src/data/site.ts` (`contactFormEndpoint`). Endpoint
+ids are public by nature — they appear in the deployed HTML — so committing one leaks
+nothing. The `PUBLIC_CONTACT_FORM_ENDPOINT` environment variable (or GitHub Actions
+repository variable) overrides it at build time, which is useful for testing against a
+different form.
 
-Without this repository variable, or if the value is not an absolute `https://` URL,
-the form is rendered but its submit button remains disabled, so visitors will not
-submit into a broken endpoint.
+Notes:
+
+- The recipient address is configured in Formspree. Formspree emails a verification
+  link to that address; submissions are not delivered until it is confirmed.
+- If the resolved endpoint is not an absolute `https://` URL, the form renders with
+  its submit button disabled, so visitors cannot submit into a broken endpoint.
 
 ## Deployment
 

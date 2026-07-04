@@ -2,11 +2,18 @@
 import { Image, Picture } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import ContactForm from '../components/ContactForm.astro';
-import { events, focusAreas, mission, people, projects } from '../data/site';
+import {
+  contactFormEndpoint,
+  events,
+  focusAreas,
+  mission,
+  people,
+  projects
+} from '../data/site';
 import brandBanner from '../assets/ai4w-logo-big.png';
 import heroImage from '../assets/hero.png';
 
-const contactFormEndpoint = import.meta.env.PUBLIC_CONTACT_FORM_ENDPOINT?.trim() ?? '';
+const formEndpoint = import.meta.env.PUBLIC_CONTACT_FORM_ENDPOINT?.trim() || contactFormEndpoint;
 ---
 
 <Layout title="Cambridge AI for Wellbeing Society">
@@ -150,7 +157,7 @@ const contactFormEndpoint = import.meta.env.PUBLIC_CONTACT_FORM_ENDPOINT?.trim()
         <a class="button secondary" href="https://github.com/ai4wellbeing">GitHub</a>
       </div>
     </div>
-    <ContactForm endpoint={contactFormEndpoint} />
+    <ContactForm endpoint={formEndpoint} />
   </section>
 
   <section class="brand-banner" aria-label="Society crest and wordmark">
