@@ -1,12 +1,13 @@
 import type { ImageMetadata } from 'astro';
 import founderPortrait from '../assets/hanlin-cai.jpg';
 
+// Root-relative anchors so navigation also works from non-home pages (e.g. 404).
 export const navItems = [
-  { label: 'Mission', href: '#mission' },
-  { label: 'Focus', href: '#focus' },
-  { label: 'Events', href: '#events' },
-  { label: 'People', href: '#people' },
-  { label: 'Contact', href: '#contact' }
+  { label: 'Mission', href: '/#mission' },
+  { label: 'Focus', href: '/#focus' },
+  { label: 'Events', href: '/#events' },
+  { label: 'People', href: '/#people' },
+  { label: 'Contact', href: '/#contact' }
 ];
 
 export const mission = [
