@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { contactFormEndpoint } from '../data/site';
+
+const formEndpoint = import.meta.env.PUBLIC_CONTACT_FORM_ENDPOINT?.trim() || contactFormEndpoint;
+---
+
+<Layout
+  title="Contact · Cambridge AI for Wellbeing Society"
+  description="Join the Cambridge AI for Wellbeing Society or start a conversation — membership, research collaboration, event proposals, and partnerships."
+>
+  <PageHeader
+    eyebrow="Join / Contact"
+    title="Build the society with us."
+    lede="We welcome students, researchers, practitioners, and partners from any discipline or background who care about responsible AI for human wellbeing."
+  />
+
+  <section class="contact-section" aria-label="Contact">
+    <div class="contact-copy">
+      <h2>Start a conversation.</h2>
+      <p>
+        Membership, research collaboration, workshop attendance, event proposals,
+        partnerships — or simply curiosity. A few sentences are enough; we reply to the
+        address you provide.
+      </p>
+      <div class="contact-actions">
+        <a class="button secondary" href="https://github.com/ai4wellbeing">GitHub</a>
+      </div>
+    </div>
+    <ContactForm endpoint={formEndpoint} />
+  </section>
+</Layout>
