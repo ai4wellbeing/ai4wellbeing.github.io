@@ -119,3 +119,8 @@ export const projects = [
       'A proposed forum series for interdisciplinary discussion on beneficial AI research and responsible deployment.'
   }
 ];
+
+// Formspree endpoint for the contact form. Endpoint ids are public by nature
+// (they appear in the deployed HTML); the recipient address stays private in
+// the Formspree dashboard. PUBLIC_CONTACT_FORM_ENDPOINT overrides this.
+export const contactFormEndpoint = 'https://formspree.io/f/xzdlyaez';
