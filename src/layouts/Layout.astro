@@ -20,6 +20,10 @@ const {
 const siteName = 'Cambridge AI for Wellbeing Society';
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
 
+const normalizePath = (path: string) => path.replace(/\/+$/, '') || '/';
+const currentPath = normalizePath(Astro.url.pathname);
+const isCurrentPage = (href: string) => normalizePath(href) === currentPath;
+
 const ogWidth = 1200;
 const ogHeight = Math.round((heroImage.height / heroImage.width) * ogWidth);
 const ogImage = await getImage({ src: heroImage, width: ogWidth, format: 'jpeg' });
@@ -62,7 +66,7 @@ const organizationSchema = JSON.stringify({
   <body>
     <a class="skip-link" href="#top">Skip to content</a>
     <header class="site-header">
-      <a class="brand" href="/#top" aria-label={`${siteName} home`}>
+      <a class="brand" href="/" aria-label={`${siteName} home`}>
         <Image class="brand-logo" src={logo} alt="" width={46} densities={[1, 2]} format="webp" />
         <span>
           <strong>{siteName}</strong>
@@ -70,7 +74,11 @@ const organizationSchema = JSON.stringify({
         </span>
       </a>
       <nav aria-label="Primary navigation">
-        {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+        {navItems.map((item) => (
+          <a href={item.href} aria-current={isCurrentPage(item.href) ? 'page' : undefined}>
+            {item.label}
+          </a>
+        ))}
       </nav>
     </header>
 

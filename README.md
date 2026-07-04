@@ -20,7 +20,7 @@ human flourishing. We connect AI research with practical questions in health, ed
 and resilience, and we foreground safety, governance, privacy, and social impact in the
 design of intelligent systems.
 
-This repository is the society's home on the web — a single, quiet page introducing our
+This repository is the society's home on the web — a small, quiet site introducing our
 mission, focus areas, events, and people, and inviting students, researchers,
 practitioners, and partners to build the society with us.
 

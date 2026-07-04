@@ -1,13 +1,11 @@
 import type { ImageMetadata } from 'astro';
 import founderPortrait from '../assets/hanlin-cai.jpg';
 
-// Root-relative anchors so navigation also works from non-home pages (e.g. 404).
 export const navItems = [
-  { label: 'Mission', href: '/#mission' },
-  { label: 'Focus', href: '/#focus' },
-  { label: 'Events', href: '/#events' },
-  { label: 'People', href: '/#people' },
-  { label: 'Contact', href: '/#contact' }
+  { label: 'Main', href: '/' },
+  { label: 'Events', href: '/events/' },
+  { label: 'People', href: '/people/' },
+  { label: 'Contact', href: '/contact/' }
 ];
 
 export const mission = [
@@ -51,29 +49,34 @@ export const focusAreas = [
   }
 ];
 
-export const events = [
-  {
-    type: 'Reading Group',
-    title: 'Responsible LLMs for Human Wellbeing',
-    date: 'Coming soon',
-    body:
-      'A paper-led discussion series on safety, privacy, robustness, and evaluation for wellbeing-oriented AI systems.'
-  },
-  {
-    type: 'Seminar',
-    title: 'Edge AI, Resilience, and Community Health',
-    date: 'Coming soon',
-    body:
-      'Research talks connecting efficient AI deployment with trustworthy communication and computing infrastructures.'
-  },
-  {
-    type: 'Workshop',
-    title: 'AI for Wellbeing Project Studio',
-    date: 'Coming soon',
-    body:
-      'A hands-on format for forming teams, refining problem statements, and developing responsible AI prototypes.'
-  }
-];
+export const workshop = {
+  title: '1st Cambridge AI for Wellbeing Workshop',
+  date: '18 July 2026',
+  location: 'University of Cambridge',
+  note: 'Venue and full schedule to be announced — register interest to receive updates.',
+  summary:
+    'Our first workshop brings together three speakers across three frontiers where AI meets human health: AI-driven drug discovery, robotics and embodied intelligence, and biotechnology.',
+  speakers: [
+    {
+      topic: 'AI for Drug Discovery',
+      name: 'Rui Wang (王锐)',
+      affiliation: 'Global Head of In Silico & AI, Evotec',
+      body: 'Leads global in silico and AI discovery work at Evotec; previously Head of AI at AstraZeneca.'
+    },
+    {
+      topic: 'Robotics & Embodied Intelligence',
+      name: 'Guangming Wang (王光明)',
+      affiliation: 'Assistant Professor, University of Galway',
+      body: 'Director of PIRLab and Research Associate at the University of Cambridge, working on robot perception and embodied intelligence.'
+    },
+    {
+      topic: 'Biotech',
+      name: 'Yizhou Yu (于一周)',
+      affiliation: 'Founder & CEO, Healthspan Biotics',
+      body: 'Computational biologist at the Cambridge Stem Cell Institute, working at the interface of computation and human health.'
+    }
+  ]
+};
 
 export const people: {
   name: string;
@@ -99,24 +102,6 @@ export const people: {
     name: 'Community Partners',
     role: 'Collaboration',
     body: 'Clinicians, technologists, policy researchers, and wellbeing practitioners are welcome to connect.'
-  }
-];
-
-export const projects = [
-  {
-    title: 'Wellbeing-oriented Edge LLM Systems',
-    body:
-      'Exploring privacy-preserving, resource-efficient, and resilient LLM deployment for human-centered applications.'
-  },
-  {
-    title: 'Trustworthy AI Evaluation',
-    body:
-      'Developing evaluation protocols for robustness, safety, privacy, and human benefit in AI-assisted workflows.'
-  },
-  {
-    title: 'Cambridge AI for Good Forum',
-    body:
-      'A proposed forum series for interdisciplinary discussion on beneficial AI research and responsible deployment.'
   }
 ];
 

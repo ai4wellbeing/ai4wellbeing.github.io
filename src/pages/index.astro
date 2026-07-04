@@ -1,19 +1,9 @@
 ---
 import { Image, Picture } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
-import ContactForm from '../components/ContactForm.astro';
-import {
-  contactFormEndpoint,
-  events,
-  focusAreas,
-  mission,
-  people,
-  projects
-} from '../data/site';
+import { focusAreas, mission, workshop } from '../data/site';
 import brandBanner from '../assets/ai4w-logo-big.png';
 import heroImage from '../assets/hero.png';
-
-const formEndpoint = import.meta.env.PUBLIC_CONTACT_FORM_ENDPOINT?.trim() || contactFormEndpoint;
 ---
 
 <Layout title="Cambridge AI for Wellbeing Society">
@@ -36,16 +26,17 @@ const formEndpoint = import.meta.env.PUBLIC_CONTACT_FORM_ENDPOINT?.trim() || con
         Responsible AI research, education, and community for human wellbeing.
       </p>
       <div class="hero-actions">
-        <a class="button primary" href="#contact">Join the society</a>
-        <a class="button secondary" href="#events">View events</a>
+        <a class="button primary" href="/contact/">Join the society</a>
+        <a class="button secondary" href="/events/">View events</a>
       </div>
     </div>
   </section>
 
   <section class="intro-band" aria-label="Society summary">
     <p>
-      An interdisciplinary Cambridge-based community exploring how AI systems can be
-      designed, evaluated, and governed to support human flourishing.
+      We are an interdisciplinary, Cambridge-based community exploring how AI can be
+      designed, evaluated, and governed to support human flourishing — openly,
+      responsibly, and in the public interest.
     </p>
   </section>
 
@@ -80,84 +71,19 @@ const formEndpoint = import.meta.env.PUBLIC_CONTACT_FORM_ENDPOINT?.trim() || con
     </div>
   </section>
 
-  <section class="section" id="events" aria-labelledby="events-title">
-    <div class="section-heading split">
-      <div>
-        <p class="eyebrow">Events</p>
-        <h2 id="events-title">Seminars, reading groups, and project studios.</h2>
-      </div>
-      <a class="text-link" href="#contact">Propose an event</a>
-    </div>
-    <div class="event-list">
-      {events.map((event) => (
-        <article class="event-card">
-          <div>
-            <p class="tag">{event.type}</p>
-            <h3>{event.title}</h3>
-            <p>{event.body}</p>
-          </div>
-          <span class="event-date">{event.date}</span>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  <section class="section warm" id="people" aria-labelledby="people-title">
-    <div class="section-heading">
-      <p class="eyebrow">People</p>
-      <h2 id="people-title">A growing interdisciplinary network.</h2>
-    </div>
-    <div class="three-grid">
-      {people.map((person) => (
-        <article class="profile">
-          {person.image && (
-            <Image
-              class="profile-photo"
-              src={person.image}
-              alt={`Portrait of ${person.name}`}
-              width={112}
-              densities={[1, 2]}
-              format="webp"
-            />
-          )}
-          <h3>
-            {person.link ? <a href={person.link}>{person.name}</a> : person.name}
-          </h3>
-          <p class="role">{person.role}</p>
-          <p>{person.body}</p>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  <section class="section" id="projects" aria-labelledby="projects-title">
-    <div class="section-heading">
-      <p class="eyebrow">Projects</p>
-      <h2 id="projects-title">Early directions for research and collaboration.</h2>
-    </div>
-    <div class="project-grid">
-      {projects.map((project) => (
-        <article class="project-card">
-          <h3>{project.title}</h3>
-          <p>{project.body}</p>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  <section class="contact-section" id="contact" aria-labelledby="contact-title">
-    <div class="contact-copy">
-      <p class="eyebrow">Join / Contact</p>
-      <h2 id="contact-title">Build the society with us.</h2>
+  <section class="cta-band" aria-labelledby="cta-title">
+    <div>
+      <p class="eyebrow">Get involved</p>
+      <h2 id="cta-title">Research, learn, and build with us.</h2>
       <p>
-        We welcome students, researchers, practitioners, and partners interested in
-        responsible AI for human wellbeing.
+        Our first workshop takes place on {workshop.date} — and new members are always
+        welcome, from any discipline or background.
       </p>
-      <div class="contact-actions">
-        <a class="button secondary" href="https://github.com/ai4wellbeing">GitHub</a>
-      </div>
     </div>
-    <ContactForm endpoint={formEndpoint} />
+    <div class="contact-actions">
+      <a class="button primary" href="/events/">See the workshop</a>
+      <a class="button secondary" href="/contact/">Get in touch</a>
+    </div>
   </section>
 
   <section class="brand-banner" aria-label="Society crest and wordmark">

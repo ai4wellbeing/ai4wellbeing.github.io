@@ -1,0 +1,41 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { people } from '../data/site';
+---
+
+<Layout
+  title="People · Cambridge AI for Wellbeing Society"
+  description="The people behind the Cambridge AI for Wellbeing Society — an open, interdisciplinary network of students, researchers, and practitioners."
+>
+  <PageHeader
+    eyebrow="People"
+    title="A growing interdisciplinary network."
+    lede="AI4W is built by students, researchers, clinicians, and practitioners who believe technology should serve human flourishing — and it is open to everyone who shares that belief."
+  />
+
+  <section class="section warm tight-top" aria-label="People">
+    <div class="three-grid">
+      {people.map((person) => (
+        <article class="profile">
+          {person.image && (
+            <Image
+              class="profile-photo"
+              src={person.image}
+              alt={`Portrait of ${person.name}`}
+              width={112}
+              densities={[1, 2]}
+              format="webp"
+            />
+          )}
+          <h3>
+            {person.link ? <a href={person.link}>{person.name}</a> : person.name}
+          </h3>
+          <p class="role">{person.role}</p>
+          <p>{person.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</Layout>
