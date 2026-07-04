@@ -19,6 +19,20 @@ npm run build
 
 The generated site is written to `dist/`.
 
+## Project structure
+
+```text
+src/
+  layouts/Layout.astro          shared HTML shell: head metadata, header, footer
+  pages/index.astro             the one-page site, section by section
+  pages/404.astro               not-found page (reuses the layout)
+  components/ContactForm.astro  enquiry form + progressive-enhancement script
+  data/site.ts                  all copy and navigation data
+  styles/global.css             design tokens and global styles
+  assets/                       source images, optimized at build time
+public/                         files served as-is (icons, robots.txt)
+```
+
 ## Contact form
 
 GitHub Pages serves static files and cannot send email by itself. The contact form is

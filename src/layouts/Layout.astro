@@ -1,0 +1,88 @@
+---
+import { Image, getImage } from 'astro:assets';
+import '../styles/global.css';
+import { navItems } from '../data/site';
+import logo from '../assets/ai4w-logo.png';
+import heroImage from '../assets/hero.png';
+
+interface Props {
+  title: string;
+  description?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = 'Cambridge AI for Wellbeing Society is an interdisciplinary community for responsible AI research, education, and human wellbeing.',
+  noindex = false
+} = Astro.props;
+
+const siteName = 'Cambridge AI for Wellbeing Society';
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+
+const ogWidth = 1200;
+const ogHeight = Math.round((heroImage.height / heroImage.width) * ogWidth);
+const ogImage = await getImage({ src: heroImage, width: ogWidth, format: 'jpeg' });
+const ogImageUrl = new URL(ogImage.src, Astro.site).href;
+
+const organizationSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: siteName,
+  url: Astro.site,
+  logo: new URL('/apple-touch-icon.png', Astro.site).href,
+  sameAs: ['https://github.com/ai4wellbeing']
+});
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content={String(ogWidth)} />
+    <meta property="og:image:height" content={String(ogHeight)} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#133844" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <script type="application/ld+json" set:html={organizationSchema} />
+  </head>
+  <body>
+    <a class="skip-link" href="#top">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="/#top" aria-label={`${siteName} home`}>
+        <Image class="brand-logo" src={logo} alt="" width={46} densities={[1, 2]} format="webp" />
+        <span>
+          <strong>{siteName}</strong>
+          <small>Responsible AI for human wellbeing</small>
+        </span>
+      </a>
+      <nav aria-label="Primary navigation">
+        {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+      </nav>
+    </header>
+
+    <main id="top">
+      <slot />
+    </main>
+
+    <footer>
+      <p>
+        © 2026 Cambridge AI for Wellbeing Society. Independent community initiative.
+        Not an official website of the University of Cambridge.
+      </p>
+    </footer>
+  </body>
+</html>
