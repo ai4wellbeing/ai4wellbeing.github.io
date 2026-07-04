@@ -39,7 +39,8 @@ GitHub Pages serves static files and cannot send email by itself. The contact fo
 therefore wired to an external Formspree endpoint, while the recipient email address
 stays in the Formspree dashboard rather than in this repository.
 
-1. Create a Formspree form and set the target email in Formspree.
+1. Create a Formspree form and set the target email in Formspree. Formspree emails a
+   verification link to that address; submissions are not delivered until it is confirmed.
 2. Copy the full HTTPS form endpoint, for example `https://formspree.io/f/xxxxxxx`.
 3. In `ai4wellbeing/ai4wellbeing.github.io`, open Settings -> Secrets and variables
    -> Actions -> Variables.

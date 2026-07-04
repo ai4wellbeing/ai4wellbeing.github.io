@@ -45,10 +45,11 @@ const interestOptions = [
   aria-labelledby="contact-form-title"
   aria-describedby="contact-form-status"
 >
+  {/* Formspree reads `_subject` as the email subject line (literal text only). */}
   <input
     type="hidden"
-    name="subject"
-    value="New enquiry for Cambridge AI for Wellbeing Society from {{ name }}"
+    name="_subject"
+    value="New enquiry — Cambridge AI for Wellbeing Society"
   />
   <label class="form-honeypot" aria-hidden="true">
     Leave this field empty
