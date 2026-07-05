@@ -193,13 +193,13 @@ nav a:focus-visible {
   transform: translateY(-1px);
 }
 
-/* Current page pill in the site's signature Cambridge blue. */
+/* Current page: a quiet, solid ink pill — same register as the rest of the palette. */
 nav a[aria-current="page"],
 nav a[aria-current="page"]:hover,
 nav a[aria-current="page"]:focus-visible {
-  border-color: var(--cambridge-blue-strong);
-  background: var(--cambridge-blue);
-  color: #092b31;
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
   transform: none;
 }
 
