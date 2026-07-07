@@ -501,6 +501,117 @@ h3 {
   margin: 34px auto 0;
 }
 
+/* ---------- Speaker cards ---------- */
+
+.speaker-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.speaker-card {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 24px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.speaker-avatar {
+  margin-bottom: 18px;
+}
+
+.speaker-photo,
+.avatar-mark {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+}
+
+.speaker-photo {
+  border: 3px solid var(--paper);
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(19, 56, 68, 0.16);
+}
+
+.avatar-mark {
+  display: grid;
+  place-content: center;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.avatar-mark.monogram {
+  background: linear-gradient(150deg, #1c4d5c, var(--ink));
+  color: var(--paper);
+  box-shadow: 0 10px 30px rgba(19, 56, 68, 0.16);
+}
+
+.avatar-mark.tba {
+  border: 2px dashed rgba(19, 56, 68, 0.32);
+  color: var(--ink-muted);
+  font-size: 1.7rem;
+}
+
+.speaker-card .tag {
+  margin: 0 0 8px;
+}
+
+.speaker-card h3 {
+  font-size: 1.32rem;
+}
+
+.speaker-card h3 a {
+  transition: color 160ms ease;
+}
+
+.speaker-card h3 a:hover {
+  color: var(--cambridge-blue-strong);
+}
+
+.speaker-card .role {
+  margin: 8px 0 0;
+  color: var(--ink);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.speaker-card > p:not(.tag):not(.role):not(.speaker-tba-note) {
+  flex: 1 0 auto;
+}
+
+.speaker-link {
+  align-self: flex-start;
+  margin-top: 18px;
+  color: var(--cambridge-blue-strong);
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  font-weight: 750;
+}
+
+.speaker-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.speaker-card.is-tba {
+  background: rgba(255, 255, 255, 0.5);
+  border-style: dashed;
+}
+
+.speaker-tba-note {
+  margin-top: 18px;
+  color: var(--ink-muted);
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
 .text-link {
   flex: none;
   border-bottom: 2px solid var(--cambridge-blue-strong);
@@ -739,6 +850,10 @@ footer p {
     grid-template-columns: 1fr;
   }
 
+  .speaker-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .focus-item,
   .focus-item:nth-child(2n) {
     padding: 24px 0;
@@ -810,5 +925,9 @@ footer p {
 
   .contact-form {
     padding: 20px;
+  }
+
+  .speaker-grid {
+    grid-template-columns: 1fr;
   }
 }

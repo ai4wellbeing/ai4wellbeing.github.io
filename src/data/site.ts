@@ -1,5 +1,7 @@
 import type { ImageMetadata } from 'astro';
 import founderPortrait from '../assets/hanlin-cai.jpg';
+import guangmingWang from '../assets/speaker-guangming-wang.jpg';
+import yizhouYu from '../assets/speaker-yizhou-yu.jpg';
 
 export const navItems = [
   { label: 'Main', href: '/' },
@@ -49,33 +51,69 @@ export const focusAreas = [
   }
 ];
 
+export interface Speaker {
+  topic: string;
+  name: string;
+  affiliation: string;
+  body: string;
+  link?: string;
+  image?: ImageMetadata;
+  tba?: boolean;
+}
+
 export const workshop = {
   title: '1st Cambridge AI for Wellbeing Workshop',
   date: '18 July 2026',
   location: 'University of Cambridge',
   note: 'Venue and full schedule to be announced — register interest to receive updates.',
   summary:
-    'Our first workshop brings together three speakers across three frontiers where AI meets human health: AI-driven drug discovery, robotics and embodied intelligence, and biotechnology.',
+    'Our first workshop brings together six speakers spanning the full chain from the compute infrastructure beneath AI to its scientific applications — a single throughline for AI for Wellbeing: trustworthy, usable, and affordable intelligence in the service of health, education, and scientific discovery.',
   speakers: [
     {
       topic: 'AI for Drug Discovery',
-      name: 'Rui Wang (王锐)',
-      affiliation: 'Global Head of In Silico & AI, Evotec',
-      body: 'Leads global in silico and AI discovery work at Evotec; previously Head of AI at AstraZeneca.'
+      name: 'Rui Wang · 王锐',
+      affiliation: 'EVP, Global Head of In Silico & AI, Evotec',
+      body: 'Leads enterprise-scale AI drug discovery at Evotec; previously Head of Data, Analytics and AI at AstraZeneca.',
+      link: 'https://uk.linkedin.com/in/ruiwanguk'
     },
     {
-      topic: 'Robotics & Embodied Intelligence',
-      name: 'Guangming Wang (王光明)',
-      affiliation: 'Assistant Professor, University of Galway',
-      body: 'Director of PIRLab and Research Associate at the University of Cambridge, working on robot perception and embodied intelligence.'
+      topic: 'Embodied Intelligence',
+      name: 'Guangming Wang · 王光明',
+      affiliation: 'Assistant Professor, University of Galway · Research Associate, University of Cambridge',
+      body: 'Works on embodied intelligence that unites world models with LLM reasoning for robot perception and control.',
+      link: 'https://guangmingw.github.io/',
+      image: guangmingWang
     },
     {
-      topic: 'Biotech',
-      name: 'Yizhou Yu (于一周)',
-      affiliation: 'Founder & CEO, Healthspan Biotics',
-      body: 'Computational biologist at the Cambridge Stem Cell Institute, working at the interface of computation and human health.'
+      topic: 'Bioengineering',
+      name: 'Yizhou Yu · 于一周',
+      affiliation: 'Founder & CEO, Healthspan Biotics · Cambridge Stem Cell Institute',
+      body: 'Develops AI-driven probiotic therapies for neurodegenerative disease as a computational biologist and founder.',
+      link: 'https://www.yizhouyu.com/',
+      image: yizhouYu
+    },
+    {
+      topic: 'Voice AI',
+      name: 'Shilin Gao · 高士琳',
+      affiliation: 'PhD, Department of Engineering, University of Cambridge',
+      body: 'Builds adaptive spoken-dialogue systems for language learning; formerly Senior ML Engineer at Cambridge University Press & Assessment.',
+      link: 'https://uk.linkedin.com/in/shilin-g-155ab593'
+    },
+    {
+      topic: 'ML for Materials',
+      name: 'Xin Chen · 陈忻',
+      affiliation: 'PhD, Department of Materials Science, University of Cambridge',
+      body: 'Applies machine learning to electron-microscopy characterisation in the Electron Microscopy Group.',
+      link: 'https://www.emg.msm.cam.ac.uk/People/xin-chen'
+    },
+    {
+      topic: 'Efficient LLM Systems',
+      name: 'Youhe Jiang · 姜友和',
+      affiliation: 'PhD, Department of Computer Science, University of Cambridge',
+      body: 'Works on efficient large language model systems.',
+      tba: true
     }
-  ]
+  ] satisfies Speaker[]
 };
 
 export const people: {

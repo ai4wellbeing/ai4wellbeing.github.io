@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/PageHeader.astro';
+import SpeakerCard from '../components/SpeakerCard.astro';
 import { workshop } from '../data/site';
 ---
 
@@ -17,17 +18,10 @@ import { workshop } from '../data/site';
   <section class="section tight-top" aria-labelledby="speakers-title">
     <div class="section-heading">
       <p class="eyebrow">Speakers</p>
-      <h2 id="speakers-title">Three frontiers of AI for human health.</h2>
+      <h2 id="speakers-title">Six frontiers, from compute to cure.</h2>
     </div>
-    <div class="three-grid">
-      {workshop.speakers.map((speaker) => (
-        <article class="panel">
-          <p class="tag">{speaker.topic}</p>
-          <h3>{speaker.name}</h3>
-          <p class="role">{speaker.affiliation}</p>
-          <p>{speaker.body}</p>
-        </article>
-      ))}
+    <div class="speaker-grid">
+      {workshop.speakers.map((speaker) => <SpeakerCard speaker={speaker} />)}
     </div>
     <div class="section-cta">
       <a class="button primary" href="/contact/">Register interest</a>
