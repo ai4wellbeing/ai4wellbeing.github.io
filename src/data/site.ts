@@ -58,7 +58,8 @@ export interface Speaker {
   body: string;
   link?: string;
   image?: ImageMetadata;
-  tba?: boolean;
+  /** Renders as an open-call card inviting talk proposals. */
+  open?: boolean;
 }
 
 export const workshop = {
@@ -67,7 +68,7 @@ export const workshop = {
   location: 'University of Cambridge',
   note: 'Venue and full schedule to be announced — register interest to receive updates.',
   summary:
-    'Our first workshop brings together six speakers spanning the full chain from the compute infrastructure beneath AI to its scientific applications — a single throughline for AI for Wellbeing: trustworthy, usable, and affordable intelligence in the service of health, education, and scientific discovery.',
+    'Our first workshop brings together five speakers — from AI-driven drug discovery to machine learning for materials — around a single throughline: trustworthy, usable, and affordable intelligence in the service of health, education, and scientific discovery. One speaking slot remains open.',
   speakers: [
     {
       topic: 'AI for Drug Discovery',
@@ -107,11 +108,12 @@ export const workshop = {
       link: 'https://www.emg.msm.cam.ac.uk/People/xin-chen'
     },
     {
-      topic: 'Efficient LLM Systems',
-      name: 'Youhe Jiang · 姜友和',
-      affiliation: 'PhD, Department of Computer Science, University of Cambridge',
-      body: 'Works on efficient large language model systems.',
-      tba: true
+      topic: 'Open Call',
+      name: 'Your talk could be here.',
+      affiliation: 'One speaking slot remains for this edition',
+      body: 'Working on trustworthy, efficient, or human-centered AI? Propose a short talk and help complete the program.',
+      link: '/contact/',
+      open: true
     }
   ] satisfies Speaker[]
 };

@@ -87,10 +87,18 @@ const organizationSchema = JSON.stringify({
     </main>
 
     <footer>
-      <p>
-        © 2026 Cambridge AI for Wellbeing Society. Independent community initiative.
-        Not an official website of the University of Cambridge.
-      </p>
+      <div class="footer-inner">
+        <p>
+          © 2026 Cambridge AI for Wellbeing Society. Independent community initiative.
+          Not an official website of the University of Cambridge.
+        </p>
+        <nav class="footer-nav" aria-label="Footer">
+          {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+          <a href="https://github.com/ai4wellbeing" target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+        </nav>
+      </div>
     </footer>
   </body>
 </html>

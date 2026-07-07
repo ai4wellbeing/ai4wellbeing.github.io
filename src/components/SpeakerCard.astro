@@ -15,10 +15,15 @@ const initials = englishName
   .join('')
   .slice(0, 2)
   .toUpperCase();
-const linkLabel = speaker.link?.includes('linkedin') ? 'LinkedIn' : 'Homepage';
+const isExternal = speaker.link?.startsWith('http');
+const linkLabel = speaker.open
+  ? 'Propose a talk'
+  : speaker.link?.includes('linkedin')
+    ? 'LinkedIn'
+    : 'Homepage';
 ---
 
-<article class:list={['speaker-card', { 'is-tba': speaker.tba }]}>
+<article class:list={['speaker-card', { 'is-open': speaker.open }]}>
   <div class="speaker-avatar">
     {speaker.image ? (
       <Image
@@ -29,8 +34,8 @@ const linkLabel = speaker.link?.includes('linkedin') ? 'LinkedIn' : 'Homepage';
         densities={[1, 2]}
         format="webp"
       />
-    ) : speaker.tba ? (
-      <span class="avatar-mark tba" aria-hidden="true">?</span>
+    ) : speaker.open ? (
+      <span class="avatar-mark open" aria-hidden="true">+</span>
     ) : (
       <span class="avatar-mark monogram" aria-hidden="true">{initials}</span>
     )}
@@ -39,7 +44,13 @@ const linkLabel = speaker.link?.includes('linkedin') ? 'LinkedIn' : 'Homepage';
   <p class="tag">{speaker.topic}</p>
   <h3>
     {speaker.link ? (
-      <a href={speaker.link} target="_blank" rel="noopener noreferrer">{speaker.name}</a>
+      <a
+        href={speaker.link}
+        target={isExternal ? '_blank' : undefined}
+        rel={isExternal ? 'noopener noreferrer' : undefined}
+      >
+        {speaker.name}
+      </a>
     ) : (
       speaker.name
     )}
@@ -48,9 +59,13 @@ const linkLabel = speaker.link?.includes('linkedin') ? 'LinkedIn' : 'Homepage';
   <p>{speaker.body}</p>
 
   {speaker.link && (
-    <a class="speaker-link" href={speaker.link} target="_blank" rel="noopener noreferrer">
-      {linkLabel} <span aria-hidden="true">↗</span>
+    <a
+      class="speaker-link"
+      href={speaker.link}
+      target={isExternal ? '_blank' : undefined}
+      rel={isExternal ? 'noopener noreferrer' : undefined}
+    >
+      {linkLabel} <span aria-hidden="true">{isExternal ? '↗' : '→'}</span>
     </a>
   )}
-  {speaker.tba && <p class="speaker-tba-note">Speaker to be announced</p>}
 </article>
