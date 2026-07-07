@@ -367,6 +367,8 @@ h3 {
 }
 
 .workshop-meta span {
+  display: block;
+  margin-top: 6px;
   color: var(--ink-muted);
   font-weight: 550;
 }
