@@ -66,8 +66,9 @@ export interface Speaker {
 export const workshop = {
   title: '1st Cambridge AI for Wellbeing Workshop',
   date: '18 July 2026',
-  location: 'University of Cambridge',
-  note: 'Venue and full schedule to be announced — register interest to receive updates.',
+  time: '9:00 – 12:00',
+  location: "St John's College, University of Cambridge",
+  note: 'Full schedule to be announced — register interest to receive updates.',
   summary:
     'Our first workshop brings together five speakers — from AI-driven drug discovery to machine learning for materials — around a single throughline: trustworthy, usable, and affordable intelligence in the service of health, education, and scientific discovery. One speaking slot remains open.',
   speakers: [
@@ -158,8 +159,8 @@ export const sponsors = [
   {
     name: 'Huawei',
     tier: 'Sponsor',
-    logo: '/sponsors/huawei.svg',
-    height: 30,
+    logo: '/sponsors/huawei.png',
+    height: 74,
     url: 'https://www.huawei.com/en/'
   },
   {

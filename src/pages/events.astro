@@ -11,14 +11,15 @@ import { sponsors, workshop } from '../data/site';
 >
   <PageHeader eyebrow="Events · First Workshop" title={workshop.title} lede={workshop.summary}>
     <p class="workshop-meta">
-      {workshop.date} · {workshop.location} · <span>{workshop.note}</span>
+      {workshop.date}, {workshop.time} · {workshop.location}
+      <span>{workshop.note}</span>
     </p>
   </PageHeader>
 
   <section class="section tight-top" aria-labelledby="speakers-title">
     <div class="section-heading">
       <p class="eyebrow">Speakers</p>
-      <h2 id="speakers-title">Five frontiers of AI for human health.</h2>
+      <h2 id="speakers-title">Five frontiers of AI for human wellbeing.</h2>
     </div>
     <div class="speaker-grid">
       {workshop.speakers.map((speaker) => <SpeakerCard speaker={speaker} />)}
