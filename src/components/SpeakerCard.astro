@@ -1,0 +1,71 @@
+---
+import { Image } from 'astro:assets';
+import type { Speaker } from '../data/site';
+
+interface Props {
+  speaker: Speaker;
+}
+
+const { speaker } = Astro.props;
+
+const englishName = speaker.name.split('·')[0].trim();
+const initials = englishName
+  .split(/\s+/)
+  .map((word) => word[0])
+  .join('')
+  .slice(0, 2)
+  .toUpperCase();
+const isExternal = speaker.link?.startsWith('http');
+const linkLabel = speaker.open
+  ? 'Propose a talk'
+  : speaker.link?.includes('linkedin')
+    ? 'LinkedIn'
+    : 'Homepage';
+---
+
+<article class:list={['speaker-card', { 'is-open': speaker.open }]}>
+  <div class="speaker-avatar">
+    {speaker.image ? (
+      <Image
+        class="speaker-photo"
+        src={speaker.image}
+        alt={`Portrait of ${englishName}`}
+        width={96}
+        densities={[1, 2]}
+        format="webp"
+      />
+    ) : speaker.open ? (
+      <span class="avatar-mark open" aria-hidden="true">+</span>
+    ) : (
+      <span class="avatar-mark monogram" aria-hidden="true">{initials}</span>
+    )}
+  </div>
+
+  <p class="tag">{speaker.topic}</p>
+  <h3>
+    {speaker.link ? (
+      <a
+        href={speaker.link}
+        target={isExternal ? '_blank' : undefined}
+        rel={isExternal ? 'noopener noreferrer' : undefined}
+      >
+        {speaker.name}
+      </a>
+    ) : (
+      speaker.name
+    )}
+  </h3>
+  <p class="role">{speaker.affiliation}</p>
+  <p>{speaker.body}</p>
+
+  {speaker.link && (
+    <a
+      class="speaker-link"
+      href={speaker.link}
+      target={isExternal ? '_blank' : undefined}
+      rel={isExternal ? 'noopener noreferrer' : undefined}
+    >
+      {linkLabel} <span aria-hidden="true">{isExternal ? '↗' : '→'}</span>
+    </a>
+  )}
+</article>
