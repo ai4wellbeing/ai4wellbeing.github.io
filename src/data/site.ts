@@ -1,5 +1,6 @@
 import type { ImageMetadata } from 'astro';
 import founderPortrait from '../assets/hanlin-cai.jpg';
+import coFounderPortrait from '../assets/zihao-huang.jpg';
 import guangmingWang from '../assets/speaker-guangming-wang.jpg';
 import yizhouYu from '../assets/speaker-yizhou-yu.jpg';
 
@@ -134,6 +135,14 @@ export const people: {
     link: 'https://caihanlin.com'
   },
   {
+    name: 'Zihao Huang',
+    role: 'Co-founder',
+    body:
+      'Researcher at the University of Cambridge working in computational biology and bioinformatics, spanning population genetics and environmental DNA.',
+    image: coFounderPortrait,
+    link: 'https://www.linkedin.com/in/zihao-huang-248522383'
+  },
+  {
     name: 'Research Members',
     role: 'Open Call',
     body: 'Students and researchers interested in AI safety, wellbeing, healthcare, education, and society.'
@@ -142,6 +151,23 @@ export const people: {
     name: 'Community Partners',
     role: 'Collaboration',
     body: 'Clinicians, technologists, policy researchers, and wellbeing practitioners are welcome to connect.'
+  }
+];
+
+export const sponsors = [
+  {
+    name: 'Huawei',
+    tier: 'Sponsor',
+    logo: '/sponsors/huawei.svg',
+    height: 30,
+    url: 'https://www.huawei.com/en/'
+  },
+  {
+    name: 'Chinese Students and Scholars Association in Cambridge',
+    tier: 'Supported by',
+    logo: '/sponsors/cssa.png',
+    height: 52,
+    url: 'https://cssacam.org/'
   }
 ];
 
