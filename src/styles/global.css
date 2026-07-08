@@ -373,6 +373,13 @@ h3 {
   font-weight: 550;
 }
 
+.workshop-meta a {
+  color: var(--cambridge-blue-strong);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
 /* ---------- Page sections & cards ---------- */
 
 .intro-band {
