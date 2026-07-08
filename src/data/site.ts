@@ -4,6 +4,7 @@ import joeHuang from '../assets/joe-huang.jpg';
 import zihaoLiu from '../assets/zihao-liu.jpg';
 import guangmingWang from '../assets/speaker-guangming-wang.jpg';
 import yizhouYu from '../assets/speaker-yizhou-yu.jpg';
+import shilinGao from '../assets/speaker-shilin-gao.jpg';
 
 export const navItems = [
   { label: 'Main', href: '/' },
@@ -101,7 +102,8 @@ export const workshop = {
       name: 'Shilin Gao · 高士琳',
       affiliation: 'PhD, Department of Engineering, University of Cambridge',
       body: 'Builds adaptive spoken-dialogue systems for language learning; formerly Senior ML Engineer at Cambridge University Press & Assessment.',
-      link: 'https://uk.linkedin.com/in/shilin-g-155ab593'
+      link: 'https://uk.linkedin.com/in/shilin-g-155ab593',
+      image: shilinGao
     },
     {
       topic: 'ML for Materials',
