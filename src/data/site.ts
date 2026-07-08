@@ -1,6 +1,7 @@
 import type { ImageMetadata } from 'astro';
 import founderPortrait from '../assets/hanlin-cai.jpg';
-import coFounderPortrait from '../assets/zihao-huang.jpg';
+import joeHuang from '../assets/joe-huang.jpg';
+import zihaoLiu from '../assets/zihao-liu.jpg';
 import guangmingWang from '../assets/speaker-guangming-wang.jpg';
 import yizhouYu from '../assets/speaker-yizhou-yu.jpg';
 
@@ -136,22 +137,38 @@ export const people: {
     link: 'https://caihanlin.com'
   },
   {
-    name: 'Zihao Huang',
+    name: 'Joe Huang',
     role: 'Co-founder',
     body:
       'Researcher at the University of Cambridge working in computational biology and bioinformatics, spanning population genetics and environmental DNA.',
-    image: coFounderPortrait,
+    image: joeHuang,
     link: 'https://www.linkedin.com/in/zihao-huang-248522383'
   },
   {
-    name: 'Research Members',
-    role: 'Open Call',
-    body: 'Students and researchers interested in AI safety, wellbeing, healthcare, education, and society.'
+    name: 'Zihao Liu',
+    role: 'Core Member',
+    body:
+      'Information Engineering undergraduate at the University of Cambridge. LLM and agent systems, AI safety research, and software engineering.',
+    image: zihaoLiu,
+    link: 'https://sileneer.github.io'
+  }
+];
+
+// Open calls rendered as a dedicated "we are growing" section on the People page.
+export const openCalls = [
+  {
+    tag: 'Open Call',
+    title: 'Research Members',
+    body:
+      'Students and researchers interested in AI safety, wellbeing, healthcare, education, and society — at any stage, from any discipline.',
+    cta: 'Join as a member'
   },
   {
-    name: 'Community Partners',
-    role: 'Collaboration',
-    body: 'Clinicians, technologists, policy researchers, and wellbeing practitioners are welcome to connect.'
+    tag: 'Collaboration',
+    title: 'Partners & Institutions',
+    body:
+      'Clinicians, technologists, policy researchers, and wellbeing practitioners — and companies or institutions who would like to sponsor, host, or build with us.',
+    cta: 'Partner with us'
   }
 ];
 

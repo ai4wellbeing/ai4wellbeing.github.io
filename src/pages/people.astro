@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/PageHeader.astro';
-import { people } from '../data/site';
+import { openCalls, people } from '../data/site';
 ---
 
 <Layout
@@ -34,6 +34,25 @@ import { people } from '../data/site';
           </h3>
           <p class="role">{person.role}</p>
           <p>{person.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="growing-title">
+    <div class="section-heading">
+      <p class="eyebrow">We are growing</p>
+      <h2 id="growing-title">The society is expanding — join us.</h2>
+    </div>
+    <div class="open-grid">
+      {openCalls.map((call) => (
+        <article class="open-card">
+          <p class="tag">{call.tag}</p>
+          <h3>{call.title}</h3>
+          <p>{call.body}</p>
+          <a class="speaker-link" href="/contact/">
+            {call.cta} <span aria-hidden="true">→</span>
+          </a>
         </article>
       ))}
     </div>
