@@ -68,7 +68,10 @@ export const workshop = {
   title: '1st Cambridge AI for Wellbeing Workshop',
   date: '18 July 2026',
   time: '9:00 – 12:00',
-  location: "St John's College, University of Cambridge",
+  location: "Palmerston Room, St John's College, University of Cambridge",
+  address: "Fisher Building, St John's College, St John's Street, Cambridge CB2 1TP",
+  mapUrl:
+    'https://www.google.com/maps/search/?api=1&query=Palmerston%20Room%2C%20St%20John%27s%20College%2C%20Cambridge%20CB2%201TP',
   note: 'Full schedule to be announced — register interest to receive updates.',
   summary:
     'Our first workshop brings together five speakers — from AI-driven drug discovery to machine learning for materials — around a single throughline: trustworthy, usable, and affordable intelligence in the service of health, education, and scientific discovery. One speaking slot remains open.',
@@ -146,7 +149,7 @@ export const people: {
   },
   {
     name: 'Zihao Liu',
-    role: 'Core Member',
+    role: 'Co-founder',
     body:
       'Information Engineering undergraduate at the University of Cambridge. LLM and agent systems, AI safety research, and software engineering.',
     image: zihaoLiu,

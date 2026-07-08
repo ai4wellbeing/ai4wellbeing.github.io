@@ -12,6 +12,11 @@ import { sponsors, workshop } from '../data/site';
   <PageHeader eyebrow="Events · First Workshop" title={workshop.title} lede={workshop.summary}>
     <p class="workshop-meta">
       {workshop.date}, {workshop.time} · {workshop.location}
+      <span>
+        <a href={workshop.mapUrl} target="_blank" rel="noopener noreferrer">
+          {workshop.address}
+        </a>
+      </span>
       <span>{workshop.note}</span>
     </p>
   </PageHeader>
