@@ -4,6 +4,7 @@ import joeHuang from '../assets/joe-huang.jpg';
 import zihaoLiu from '../assets/zihao-liu.jpg';
 import guangmingWang from '../assets/speaker-guangming-wang.jpg';
 import yizhouYu from '../assets/speaker-yizhou-yu.jpg';
+import youheJiang from '../assets/speaker-youhe-jiang.jpg';
 import shilinGao from '../assets/speaker-shilin-gao.jpg';
 
 export const navItems = [
@@ -75,7 +76,7 @@ export const workshop = {
     'https://www.google.com/maps/search/?api=1&query=Palmerston%20Room%2C%20St%20John%27s%20College%2C%20Cambridge%20CB2%201TP',
   note: 'Full schedule to be announced — register interest to receive updates.',
   summary:
-    'Our first workshop brings together five speakers — from AI-driven drug discovery to machine learning for materials — around a single throughline: trustworthy, usable, and affordable intelligence in the service of health, education, and scientific discovery. One speaking slot remains open.',
+    'Our first workshop brings together six speakers spanning the full chain from the compute infrastructure beneath AI to its scientific applications — around a single throughline: trustworthy, usable, and affordable intelligence in the service of health, education, and scientific discovery.',
   speakers: [
     {
       topic: 'AI for Drug Discovery',
@@ -116,12 +117,12 @@ export const workshop = {
       link: 'https://www.emg.msm.cam.ac.uk/People/xin-chen'
     },
     {
-      topic: 'Open Call',
-      name: 'Your talk could be here.',
-      affiliation: 'One speaking slot remains for this edition',
-      body: 'Working on trustworthy, efficient, or human-centered AI? Propose a short talk and help complete the program.',
-      link: '/contact/',
-      open: true
+      topic: 'Efficient LLM Systems',
+      name: 'Youhe Jiang · 姜友和',
+      affiliation: 'PhD, Department of Computer Science, University of Cambridge',
+      body: 'Works on the AI-infrastructure and MLSys layer beneath efficient large language models — distributed systems, LLM serving, and large-scale training — with recent work at OSDI, ICML, ICLR, and MLSys.',
+      link: 'https://youhe-jiang.github.io/',
+      image: youheJiang
     }
   ] satisfies Speaker[]
 };
