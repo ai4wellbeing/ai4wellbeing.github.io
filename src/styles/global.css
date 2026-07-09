@@ -264,6 +264,8 @@ h3 {
   font-family: var(--font-display);
   font-weight: 600;
   line-height: 1.08;
+  /* Cormorant defaults to old-style figures; "1st" in a heading needs cap-height digits. */
+  font-variant-numeric: lining-nums;
 }
 
 h1 {
