@@ -7,7 +7,7 @@ import { sponsors, workshop } from '../data/site';
 
 <Layout
   title="Events · Cambridge AI for Wellbeing Society"
-  description={`${workshop.title} on ${workshop.date} — five speakers from AI-driven drug discovery to machine learning for materials, plus one open speaking slot.`}
+  description={`${workshop.title} on ${workshop.date} — six speakers spanning AI drug discovery, embodied intelligence, bioengineering, voice AI, ML for materials, and efficient LLM systems.`}
 >
   <PageHeader eyebrow="Events · First Workshop" title={workshop.title} lede={workshop.summary}>
     <p class="workshop-meta">
@@ -24,7 +24,7 @@ import { sponsors, workshop } from '../data/site';
   <section class="section tight-top" aria-labelledby="speakers-title">
     <div class="section-heading">
       <p class="eyebrow">Speakers</p>
-      <h2 id="speakers-title">Five frontiers of AI for human wellbeing.</h2>
+      <h2 id="speakers-title">Six frontiers of AI for human wellbeing.</h2>
     </div>
     <div class="speaker-grid">
       {workshop.speakers.map((speaker) => <SpeakerCard speaker={speaker} />)}
