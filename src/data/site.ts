@@ -3,9 +3,11 @@ import founderPortrait from '../assets/hanlin-cai.jpg';
 import joeHuang from '../assets/joe-huang.jpg';
 import zihaoLiu from '../assets/zihao-liu.jpg';
 import guangmingWang from '../assets/speaker-guangming-wang.jpg';
+import ruiWang from '../assets/speaker-rui-wang.jpg';
+import shilinGao from '../assets/speaker-shilin-gao.jpg';
+import xinChen from '../assets/speaker-xin-chen.jpg';
 import yizhouYu from '../assets/speaker-yizhou-yu.jpg';
 import youheJiang from '../assets/speaker-youhe-jiang.jpg';
-import shilinGao from '../assets/speaker-shilin-gao.jpg';
 
 export const navItems = [
   { label: 'Main', href: '/' },
@@ -83,7 +85,8 @@ export const workshop = {
       name: 'Rui Wang · 王锐',
       affiliation: 'EVP, Global Head of In Silico & AI, Evotec',
       body: 'Leads enterprise-scale AI drug discovery at Evotec; previously Head of Data, Analytics and AI at AstraZeneca.',
-      link: 'https://uk.linkedin.com/in/ruiwanguk'
+      link: 'https://uk.linkedin.com/in/ruiwanguk',
+      image: ruiWang
     },
     {
       topic: 'Embodied Intelligence',
@@ -95,8 +98,8 @@ export const workshop = {
     },
     {
       topic: 'Bioengineering',
-      name: 'Yizhou Yu · 于一周',
-      affiliation: 'Founder & CEO, Healthspan Biotics · Cambridge Stem Cell Institute',
+      name: 'Yizhou Yu · 于艺洲',
+      affiliation: 'Founder, ONECARBON · Cambridge Stem Cell Institute',
       body: 'Develops AI-driven probiotic therapies for neurodegenerative disease as a computational biologist and founder.',
       link: 'https://www.yizhouyu.com/',
       image: yizhouYu
@@ -107,6 +110,7 @@ export const workshop = {
       affiliation: 'PhD, Department of Engineering, University of Cambridge',
       body: 'Builds adaptive spoken-dialogue systems for language learning; formerly Senior ML Engineer at Cambridge University Press & Assessment.',
       link: 'https://uk.linkedin.com/in/shilin-g-155ab593',
+      image: shilinGao,
       image: shilinGao
     },
     {
@@ -114,7 +118,8 @@ export const workshop = {
       name: 'Xin Chen · 陈忻',
       affiliation: 'PhD, Department of Materials Science, University of Cambridge',
       body: 'Applies machine learning to electron-microscopy characterisation in the Electron Microscopy Group.',
-      link: 'https://www.emg.msm.cam.ac.uk/People/xin-chen'
+      link: 'https://scholar.google.com/citations?user=HiFRHNcAAAAJ&hl=en',
+      image: xinChen
     },
     {
       topic: 'Efficient LLM Systems',

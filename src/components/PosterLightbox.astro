@@ -1,0 +1,66 @@
+---
+import { Image } from 'astro:assets';
+import poster from '../assets/poster.png';
+
+const posterAlt = 'Official poster of the 1st Cambridge AI for Wellbeing Workshop';
+---
+
+<figure class="poster-figure">
+  <button
+    class="poster-trigger"
+    type="button"
+    data-poster-open
+    aria-haspopup="dialog"
+    aria-label="Enlarge the workshop poster"
+  >
+    <Image
+      class="poster-thumb"
+      src={poster}
+      alt={posterAlt}
+      width={340}
+      densities={[1, 2]}
+      format="webp"
+    />
+  </button>
+  <figcaption class="poster-caption">Workshop poster — click to enlarge</figcaption>
+</figure>
+
+<dialog class="poster-dialog" data-poster-dialog aria-label="Workshop poster, enlarged">
+  <Image
+    class="poster-full"
+    src={poster}
+    alt={posterAlt}
+    width={1500}
+    format="webp"
+    loading="lazy"
+  />
+</dialog>
+
+<script is:inline>
+  (() => {
+    const trigger = document.querySelector('[data-poster-open]');
+    const dialog = document.querySelector('[data-poster-dialog]');
+
+    if (!trigger || !(dialog instanceof HTMLDialogElement)) {
+      return;
+    }
+
+    const close = () => {
+      if (dialog.classList.contains('is-closing')) {
+        return;
+      }
+      dialog.classList.add('is-closing');
+      setTimeout(() => {
+        dialog.close();
+        dialog.classList.remove('is-closing');
+      }, 200);
+    };
+
+    trigger.addEventListener('click', () => dialog.showModal());
+    dialog.addEventListener('click', close);
+    dialog.addEventListener('cancel', (event) => {
+      event.preventDefault();
+      close();
+    });
+  })();
+</script>

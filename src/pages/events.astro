@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/PageHeader.astro';
+import PosterLightbox from '../components/PosterLightbox.astro';
 import SpeakerCard from '../components/SpeakerCard.astro';
 import { sponsors, workshop } from '../data/site';
 ---
@@ -9,17 +10,20 @@ import { sponsors, workshop } from '../data/site';
   title="Events · Cambridge AI for Wellbeing Society"
   description={`${workshop.title} on ${workshop.date} — six speakers spanning AI drug discovery, embodied intelligence, bioengineering, voice AI, ML for materials, and efficient LLM systems.`}
 >
-  <PageHeader eyebrow="Events · First Workshop" title={workshop.title} lede={workshop.summary}>
-    <p class="workshop-meta">
-      {workshop.date}, {workshop.time} · {workshop.location}
-      <span>
-        <a href={workshop.mapUrl} target="_blank" rel="noopener noreferrer">
-          {workshop.address}
-        </a>
-      </span>
-      <span>{workshop.note}</span>
-    </p>
-  </PageHeader>
+  <div class="events-header">
+    <PageHeader eyebrow="Events · First Workshop" title={workshop.title} lede={workshop.summary}>
+      <p class="workshop-meta">
+        {workshop.date}, {workshop.time} · {workshop.location}
+        <span>
+          <a href={workshop.mapUrl} target="_blank" rel="noopener noreferrer">
+            {workshop.address}
+          </a>
+        </span>
+        <span>{workshop.note}</span>
+      </p>
+    </PageHeader>
+    <PosterLightbox />
+  </div>
 
   <section class="section tight-top" aria-labelledby="speakers-title">
     <div class="section-heading">
