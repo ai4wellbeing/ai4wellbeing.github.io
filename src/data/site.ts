@@ -3,6 +3,7 @@ import founderPortrait from '../assets/hanlin-cai.jpg';
 import joeHuang from '../assets/joe-huang.jpg';
 import zihaoLiu from '../assets/zihao-liu.jpg';
 import guangmingWang from '../assets/speaker-guangming-wang.jpg';
+import ruiWang from '../assets/speaker-rui-wang.jpg';
 import shilinGao from '../assets/speaker-shilin-gao.jpg';
 import xinChen from '../assets/speaker-xin-chen.jpg';
 import yizhouYu from '../assets/speaker-yizhou-yu.jpg';
@@ -84,7 +85,8 @@ export const workshop = {
       name: 'Rui Wang · 王锐',
       affiliation: 'EVP, Global Head of In Silico & AI, Evotec',
       body: 'Leads enterprise-scale AI drug discovery at Evotec; previously Head of Data, Analytics and AI at AstraZeneca.',
-      link: 'https://uk.linkedin.com/in/ruiwanguk'
+      link: 'https://uk.linkedin.com/in/ruiwanguk',
+      image: ruiWang
     },
     {
       topic: 'Embodied Intelligence',
