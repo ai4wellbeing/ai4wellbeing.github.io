@@ -3,9 +3,10 @@ import founderPortrait from '../assets/hanlin-cai.jpg';
 import joeHuang from '../assets/joe-huang.jpg';
 import zihaoLiu from '../assets/zihao-liu.jpg';
 import guangmingWang from '../assets/speaker-guangming-wang.jpg';
+import shilinGao from '../assets/speaker-shilin-gao.jpg';
+import xinChen from '../assets/speaker-xin-chen.jpg';
 import yizhouYu from '../assets/speaker-yizhou-yu.jpg';
 import youheJiang from '../assets/speaker-youhe-jiang.jpg';
-import shilinGao from '../assets/speaker-shilin-gao.jpg';
 
 export const navItems = [
   { label: 'Main', href: '/' },
@@ -107,6 +108,7 @@ export const workshop = {
       affiliation: 'PhD, Department of Engineering, University of Cambridge',
       body: 'Builds adaptive spoken-dialogue systems for language learning; formerly Senior ML Engineer at Cambridge University Press & Assessment.',
       link: 'https://uk.linkedin.com/in/shilin-g-155ab593',
+      image: shilinGao,
       image: shilinGao
     },
     {
@@ -114,7 +116,8 @@ export const workshop = {
       name: 'Xin Chen · 陈忻',
       affiliation: 'PhD, Department of Materials Science, University of Cambridge',
       body: 'Applies machine learning to electron-microscopy characterisation in the Electron Microscopy Group.',
-      link: 'https://www.emg.msm.cam.ac.uk/People/xin-chen'
+      link: 'https://scholar.google.com/citations?user=HiFRHNcAAAAJ&hl=en',
+      image: xinChen
     },
     {
       topic: 'Efficient LLM Systems',

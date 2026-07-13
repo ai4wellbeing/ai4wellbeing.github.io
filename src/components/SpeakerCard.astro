@@ -20,7 +20,9 @@ const linkLabel = speaker.open
   ? 'Propose a talk'
   : speaker.link?.includes('linkedin')
     ? 'LinkedIn'
-    : 'Homepage';
+    : speaker.link?.includes('scholar.google')
+      ? 'Google Scholar'
+      : 'Homepage';
 ---
 
 <article class:list={['speaker-card', { 'is-open': speaker.open }]}>
