@@ -98,8 +98,8 @@ export const workshop = {
     },
     {
       topic: 'Bioengineering',
-      name: 'Yizhou Yu · 于一周',
-      affiliation: 'Founder & CEO, Healthspan Biotics · Cambridge Stem Cell Institute',
+      name: 'Yizhou Yu · 于艺洲',
+      affiliation: 'Founder, ONECARBON · Cambridge Stem Cell Institute',
       body: 'Develops AI-driven probiotic therapies for neurodegenerative disease as a computational biologist and founder.',
       link: 'https://www.yizhouyu.com/',
       image: yizhouYu
