@@ -1,6 +1,6 @@
 import type { ImageMetadata } from 'astro';
 import founderPortrait from '../assets/hanlin-cai.jpg';
-import joeHuang from '../assets/joe-huang.jpg';
+import longyanTan from '../assets/longyan-tan.jpg';
 import zihaoLiu from '../assets/zihao-liu.jpg';
 import guangmingWang from '../assets/speaker-guangming-wang.jpg';
 import ruiWang from '../assets/speaker-rui-wang.jpg';
@@ -148,12 +148,12 @@ export const people: {
     link: 'https://caihanlin.com'
   },
   {
-    name: 'Joe Huang',
+    name: 'Longyan Tan',
     role: 'Co-founder',
     body:
-      'Researcher at the University of Cambridge working in computational biology and bioinformatics, spanning population genetics and environmental DNA.',
-    image: joeHuang,
-    link: 'https://www.linkedin.com/in/zihao-huang-248522383'
+      'Ph. D. researcher in the University of Cambridge, working on AI for operations research, industrial engineering and asset management.',
+    image: longyanTan,
+    link: 'https://www.linkedin.com/in/longyan-tan-55637328a/'
   },
   {
     name: 'Zihao Liu',
